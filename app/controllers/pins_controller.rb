@@ -35,7 +35,7 @@ class PinsController < ApplicationController
   end
 
   def destroy
-    @pin.destroy(params[:id])
+    @pin.destroy
     redirect_to pins_url
   end
 
