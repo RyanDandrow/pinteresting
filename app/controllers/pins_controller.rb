@@ -4,7 +4,7 @@ class PinsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @pins = Pin.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
+    @pins = Pin.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 18)
   end
 
   def show
@@ -35,7 +35,7 @@ class PinsController < ApplicationController
   end
 
   def destroy
-    @pin.destroy
+    @pin.destroy(params[:id])
     redirect_to pins_url
   end
 
